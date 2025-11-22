@@ -1,94 +1,165 @@
-📚 Strapi Blog Frontend (Next.js)
+Next.js Blog Frontend – README (Professional Version)
+🚀 Overview
 
-A modern, responsive blog website frontend built using Next.js, styled with TailwindCSS, and powered by a Strapi Headless CMS backend.
+This is a modern, fully responsive blog frontend built with Next.js (App Router) and styled using TailwindCSS.
+It connects to a Strapi Headless CMS backend and supports dynamic pages for:
 
-This project displays blog posts, categories, authors, and media content fetched from Strapi’s REST API.
+Home page (latest posts)
 
-✨ Features
+Single post view
 
-✔ Home page listing all posts
+Authors page & author posts
 
-✔ Single post page with full content + image
+Categories page & filtered posts
 
-✔ Filter by Category
+Search functionality
 
-✔ Filter by Author
+Dark mode UI
 
-✔ Dark mode / Light mode toggle
+This project is optimized for performance, SEO, and clean UI/UX.
 
-✔ Responsive UI (mobile-first)
+🛠️ Tech Stack
+Technology	Purpose
+Next.js 14+ (App Router)	Frontend framework
+React	Component-based UI
+TailwindCSS	Styling
+TypeScript	Type safety
+Axios	API requests
+next-themes	Dark Mode
+Vercel	Deployment (optional)
+📁 Project Structure
+my-blog/
+│── app/
+│   ├── page.tsx            # Home page
+│   ├── post/[slug]/page.tsx   # Single post page
+│   ├── authors/page.tsx       # Authors list
+│   ├── author/[id]/page.tsx   # Author details
+│   ├── category/[slug]/page.tsx # Category page
+│   ├── search/page.tsx        # Search UI
+│── components/
+│── lib/                     # API helper functions
+│── public/
+│── .env.local
+│── tailwind.config.js
+│── package.json
 
-✔ SEO-friendly structure
+⚙️ Setup Instructions (Local Development)
+1️⃣ Clone the Repository
+git clone <your-frontend-repo-url>
+cd my-blog
 
-✔ Fetches data from live Strapi backend
-
-✔ Image optimization using Next.js
-
-🛠 Tech Stack
-Component	Technology
-Framework	Next.js 14 (App Router)
-Styling	TailwindCSS
-Language	TypeScript
-API Calls	fetch / REST API
-Theme	next-themes (Dark Mode)
-Deployment	Vercel
-🚀 Setup Instructions
-1️⃣ Clone the project
-git clone https://github.com/Sameera037/strapi-blog-frontend.git
-cd strapi-blog-frontend
-
-2️⃣ Install dependencies
+2️⃣ Install Dependencies
 npm install
 
-3️⃣ Create .env.local
+3️⃣ Add Environment Variables
 
-For local Strapi backend:
+Create a .env.local file:
 
 NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
 
 
-For deployed Strapi backend (Cloudflare Tunnel):
+When deployed online, replace it with:
+https://your-strapi-backend-url.com
 
-NEXT_PUBLIC_STRAPI_URL=https://your-cloudflare-or-backend-url.com
+🚀 Development Server
 
-4️⃣ Start the development server
+Start the frontend:
+
 npm run dev
 
 
-Open the app at:
+Runs at:
+
 👉 http://localhost:3000
 
-🌐 Folder Structure
-/app
-  /page.tsx               → Home page
-  /post/[id]              → Single post
-  /category/[slug]        → Category-wise posts
-  /author/[id]            → Author-wise posts
-/components               → UI components
-/lib                      → API utility functions
-/public                   → Static assets
+📡 Connecting to Strapi Backend
 
-🔗 Backend Repository
+Your Strapi backend must have these collections:
 
-The frontend is connected to the following Strapi backend:
+Posts
 
-👉 https://github.com/Sameera037/strapi-blog-backend
+Authors
 
-🚀 Deployment
+Categories
 
-This frontend can be easily deployed to Vercel:
+Media Uploads
 
-Connect your GitHub repo
+API used:
 
-Add environment variable:
-
-NEXT_PUBLIC_STRAPI_URL=<your-backend-url>
+GET /api/posts?populate=*
+GET /api/categories?populate=*
+GET /api/authors?populate=*
 
 
-Click Deploy
+All API calls are handled through:
 
-Vercel will automatically build and host your site.
+/lib/api.ts
+
+🌙 Dark Mode Support
+
+Dark mode is implemented using:
+
+next-themes
+
+
+It remembers theme preference using localStorage.
+
+🔍 Search Feature
+
+Users can search posts by:
+
+Title
+
+Description
+
+Content
+
+The search is performed client-side for speed.
+
+💡 Key Features
+✔ Modern UI (Tailwind + custom components)
+✔ Fully responsive design
+✔ App Router (Next.js 14+)
+✔ Category filter pages
+✔ Author details with all posts
+✔ Dynamic routing for posts & categories
+✔ Smooth dark mode toggle
+✔ SEO friendly structure
+✔ Highly flexible — works with any Strapi backend
+📦 Deployment (Optional)
+🔹 Deploy Frontend on Vercel
+
+Just push to GitHub → Import repo in Vercel.
+
+Set the following environment variable:
+
+NEXT_PUBLIC_STRAPI_URL=https://your-live-strapi-backend.com
+
+🤝 Contributing
+
+Fork the project
+
+Create a new branch:
+
+git checkout -b feature/xyz
+
+
+Commit changes
+
+Push to your branch
+
+Submit a pull request
 
 📄 License
 
-This project is for educational and internship use.
+This project is licensed under the MIT License.
+
+⭐ Acknowledgements
+
+Next.js Team
+
+Strapi Community
+
+TailwindCSS
+
+Open-source contributors
