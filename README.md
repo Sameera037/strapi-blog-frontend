@@ -1,4 +1,4 @@
-Next.js Blog Frontend – README (Professional Version)
+✅ Next.js Blog Frontend – README (Updated & Professional)
 🚀 Overview
 
 This is a modern, fully responsive blog frontend built with Next.js (App Router) and styled using TailwindCSS.
@@ -10,34 +10,34 @@ Single post view
 
 Authors page & author posts
 
-Categories page & filtered posts
+Categories & filtered posts
 
 Search functionality
 
 Dark mode UI
 
-This project is optimized for performance, SEO, and clean UI/UX.
+This project is built with clean architecture, strong SEO, and reusable components.
 
-🛠️ Tech Stack
+🛠 Tech Stack
 Technology	Purpose
-Next.js 14+ (App Router)	Frontend framework
-React	Component-based UI
+Next.js 14+ (App Router)	Frontend Framework
+React	UI Components
 TailwindCSS	Styling
-TypeScript	Type safety
-Axios	API requests
+TypeScript	Type Safety
+Axios / Fetch API	API Requests
 next-themes	Dark Mode
-Vercel	Deployment (optional)
 📁 Project Structure
 my-blog/
 │── app/
-│   ├── page.tsx            # Home page
-│   ├── post/[slug]/page.tsx   # Single post page
-│   ├── authors/page.tsx       # Authors list
-│   ├── author/[id]/page.tsx   # Author details
-│   ├── category/[slug]/page.tsx # Category page
-│   ├── search/page.tsx        # Search UI
+│   ├── page.tsx                  # Home page
+│   ├── post/[slug]/page.tsx      # Single post page
+│   ├── authors/page.tsx          # Authors list
+│   ├── author/[id]/page.tsx      # Author details
+│   ├── category/[slug]/page.tsx  # Category posts
+│   ├── search/page.tsx           # Search UI
+│
 │── components/
-│── lib/                     # API helper functions
+│── lib/                          # API helper functions
 │── public/
 │── .env.local
 │── tailwind.config.js
@@ -45,8 +45,8 @@ my-blog/
 
 ⚙️ Setup Instructions (Local Development)
 1️⃣ Clone the Repository
-git clone <your-frontend-repo-url>
-cd my-blog
+git clone https://github.com/Sameera037/strapi-blog-frontend.git
+cd strapi-blog-frontend
 
 2️⃣ Install Dependencies
 npm install
@@ -58,8 +58,7 @@ Create a .env.local file:
 NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
 
 
-When deployed online, replace it with:
-https://your-strapi-backend-url.com
+(To use a hosted Strapi backend, replace with its URL.)
 
 🚀 Development Server
 
@@ -72,9 +71,9 @@ Runs at:
 
 👉 http://localhost:3000
 
-📡 Connecting to Strapi Backend
+📡 Connecting to the Backend
 
-Your Strapi backend must have these collections:
+Your Strapi backend should contain:
 
 Posts
 
@@ -82,29 +81,25 @@ Authors
 
 Categories
 
-Media Uploads
+Media uploads
 
-API used:
+API endpoints used:
 
 GET /api/posts?populate=*
 GET /api/categories?populate=*
 GET /api/authors?populate=*
 
 
-All API calls are handled through:
+All requests are handled in:
 
 /lib/api.ts
 
 🌙 Dark Mode Support
 
-Dark mode is implemented using:
+Dark mode is implemented using next-themes,
+which remembers the user's theme preference automatically.
 
-next-themes
-
-
-It remembers theme preference using localStorage.
-
-🔍 Search Feature
+🔍 Search Functionality
 
 Users can search posts by:
 
@@ -114,52 +109,35 @@ Description
 
 Content
 
-The search is performed client-side for speed.
+Search runs client-side for faster performance.
 
 💡 Key Features
+
 ✔ Modern UI (Tailwind + custom components)
-✔ Fully responsive design
+✔ Fully responsive
 ✔ App Router (Next.js 14+)
-✔ Category filter pages
-✔ Author details with all posts
-✔ Dynamic routing for posts & categories
-✔ Smooth dark mode toggle
-✔ SEO friendly structure
-✔ Highly flexible — works with any Strapi backend
-📦 Deployment (Optional)
-🔹 Deploy Frontend on Vercel
+✔ Category wise filtering
+✔ Author wise filtering
+✔ SEO-friendly routing
+✔ Dynamic pages using slugs
+✔ Dark mode toggle
+✔ Works with any Strapi backend
 
-Just push to GitHub → Import repo in Vercel.
+📦 Backend Repository (Required)
 
-Set the following environment variable:
-
-NEXT_PUBLIC_STRAPI_URL=https://your-live-strapi-backend.com
+👉 Strapi Backend GitHub:
+https://github.com/Sameera037/strapi-blog-backend
 
 🤝 Contributing
 
 Fork the project
 
-Create a new branch:
+Create a feature branch
 
-git checkout -b feature/xyz
+Commit your changes
 
-
-Commit changes
-
-Push to your branch
-
-Submit a pull request
+Push and submit a PR
 
 📄 License
 
 This project is licensed under the MIT License.
-
-⭐ Acknowledgements
-
-Next.js Team
-
-Strapi Community
-
-TailwindCSS
-
-Open-source contributors
